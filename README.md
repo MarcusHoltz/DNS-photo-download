@@ -90,17 +90,23 @@ Cloudflare will give you an error message if anything isnt semantically correct.
 
 
 
+* * *
 
 ### Recombining the DNS TXT records into an image
+
+* * *
+
 
 #### Now that everything is Base64
 
 You can convert base64 back with the command ```base64 -d```. Base64 takes standard input, so you'll need to echo or pipe something to it. 
 
 
+
 #### Create a loop in a shell script using dig
 
 I probably should have explained this earlier, but we'll be using dig to grab these DNS entries. 
+
 
 
 ##### Let me explain the shell script we'll be using to recombine the DNS TXT records.
@@ -120,6 +126,7 @@ Remember when I said we'd need the total number of TXT records you made?
 - Confirm the image is created to the user.
 
 - Clean up any temporary files that might exist
+
 
 
 
