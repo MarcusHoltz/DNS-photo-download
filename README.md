@@ -145,6 +145,36 @@ rm workingpicture.tmp showmethescript.sh showmeportrait.sh >/dev/null 2>&1
 ```
 
 
+### Stuffing your shell script into a DNS TXT record
+
+That script is pretty large, it wont meet the 255 character limit that we have for TXT records. But most DNS ZONE files will take something up to 2,048 characters, but it will still split them up.
+
+To fix this you must remove the spaces in these larger 255+ character TXT records. That's why the ```tr -d [:blank:]``` was used above to retrieve the script.
+
+
+
+#### Stuffing your shell script into a single print line
+
+Having everything in a print statement allows it to be sent to a file for later use.
+
+Make sure you escape all the special characters you might run into when creating the printf command.
+
+```bash
+printf "for i in {1..N}\ndo\ndig +short TXT andsuch\$i.domain.com @9.9.9.9 | tr -d '\"' >> workingpicture.tmp\ndone\ncat workingpicture.tmp | tr -d \"\\\\n\\\\r\" | base64 -d > MyPhoto.jpg\necho -e \"\\\\MyPhoto.jpg created\\\n\"\nrm workingpicture.tmp showmethescript.sh showmeportrait.sh >/dev/null 2>&1"
+```
+
+
+##### Stuff your double stuffed shell script into base64 format
+
+Now that you have a printf command that will output your script, convert that to base64 to prevent plain text dns records for sitting around, and to save space ;-)
+
+I usually use the subdomain without the number after it. So in our example it would be - ```andsuch.domain.com.  1   IN  TXT   "fEACkQAAEAUXHlHyxj50yW0mjilYLwj8j/b6xnSCB9O1kj8NLjK5rpu28WC3iCs"``` 
+
+And your base64 TXT record will be much much longer than this example, but now you've got your script to bring down and combine all of your DNS TXT records for this subdomain into an image. 
+
+Pretty cool.
+
+
 
 ## Enjoy a photo from a DNS TXT record. 
 
