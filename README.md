@@ -28,7 +28,7 @@ wget https://raw.githubusercontent.com/MarcusHoltz/DNS-photo-download/main/downl
 
 
 
-## Explaining the insanity
+## Explaining the process
 
 Let's just see if we can do this, oh... we can. Let's.
 
