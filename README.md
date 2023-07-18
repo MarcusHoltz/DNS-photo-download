@@ -8,7 +8,9 @@
 
 If you want to inspect the script before you run it, it's stored in DNS TXT records as well:
 
-```dig +short TXT marcusInDNS.holtzweb.com | tr -d '"' | tr -d "\n\r" | tr -d [:blank:] | base64 -d````
+```bash
+dig +short TXT marcusInDNS.holtzweb.com | tr -d '"' | tr -d "\n\r" | tr -d [:blank:] | base64 -d
+```
 
 
 
