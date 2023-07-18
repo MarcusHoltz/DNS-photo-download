@@ -19,7 +19,7 @@ dig +short TXT marcusInDNS.holtzweb.com | tr -d '"' | tr -d "\n\r" | tr -d [:bla
 If you want to just create MarcusHoltz.jpg and if this even works, use the line below:
 
 ```bash
-wget https://www.holtzweb.com/downloadmarcusholtz.sh && chmod +x downloadmarcusholtz.sh && /bin/bash downloadmarcusholtz.sh
+wget https://raw.githubusercontent.com/MarcusHoltz/DNS-photo-download/main/downloadmarcusholtz.sh && chmod +x downloadmarcusholtz.sh && /bin/bash downloadmarcusholtz.sh
 ```
 
 
